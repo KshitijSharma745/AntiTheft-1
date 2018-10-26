@@ -20,6 +20,6 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("newStolen")
-    Call<JsonObject> addStolenVehicle(@Field("username") String username, @Field("password") String password);
+    Call<JsonObject> addStolenVehicle(@Field("username") String username, @Field("phone") String phoneNumber, @Field("licensePlate") String licensePlate, @Field("ownerLicense") String ownerLicense);
 
 }
