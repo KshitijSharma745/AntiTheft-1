@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.nsit.antitheft.Calls.LoginCall;
+
 public class Login extends AppCompatActivity {
 
     private EditText usernameEditText;
@@ -31,8 +33,8 @@ public class Login extends AppCompatActivity {
                 String username = usernameEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
 
-                // Make request to server for checking user is registered or not
-
+                LoginCall loginCall = new LoginCall(Login.this);
+                loginCall.execute();
             }
         });
 

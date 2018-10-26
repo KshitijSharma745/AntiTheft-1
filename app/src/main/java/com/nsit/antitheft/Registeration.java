@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nsit.antitheft.Calls.Register;
+
 public class Registeration extends AppCompatActivity {
 
     private EditText usernameEditText;
@@ -68,7 +70,7 @@ public class Registeration extends AppCompatActivity {
         registerButton = findViewById(R.id.registerButton);
         loginTextView = findViewById(R.id.loginTextView);
 
-
+        RetrofitInstance retrofitInstance = new RetrofitInstance();
 
         drivingLicenseCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,12 +110,16 @@ public class Registeration extends AppCompatActivity {
                 String pinCode = pincodeEditText.getText().toString();
                 String completeAddress = houseNo + ", " + locality + ", " + city + ", " + state + ", " + pinCode;
 
-                if (adhaarCardURL !=null && licenseCardURL !=null){
-                    // Send post request to server for user registeration
-                }
-                else{
-                    Toast.makeText(Registeration.this,"Adhaar or License missing!",Toast.LENGTH_LONG).show();
-                }
+                Register register = new Register(Registeration.this);
+                register.execute();
+
+//                if (adhaarCardURL !=null && licenseCardURL !=null){
+//                    LoginCall register = new LoginCall(Registeration.this);
+//                    register.execute();
+//                }
+//                else{
+//                    Toast.makeText(Registeration.this,"Adhaar or License missing!",Toast.LENGTH_LONG).show();
+//                }
             }
         });
 
