@@ -54,8 +54,9 @@
         <activity
             android:name=".RegisterAVehicle"
             android:label="Stolen Vehicle Details" />
-        <activity android:name=".MyRegisteredVehicles" />
-        <activity android:name=".TraceVehicleOnMap"></activity>
+        <activity android:name=".MyRegisteredVehicles"/>
+        <activity android:name=".TraceVehicleOnMap"
+            android:label="Trace Vehicle"></activity>
     </application>
 
 </manifest>

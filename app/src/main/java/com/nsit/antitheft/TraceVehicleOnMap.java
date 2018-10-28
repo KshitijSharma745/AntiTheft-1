@@ -3,7 +3,6 @@ package com.nsit.antitheft;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -14,7 +13,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.JsonArray;
@@ -77,7 +75,6 @@ public class TraceVehicleOnMap extends AppCompatActivity {
             progressDialog.dismiss();
             JsonObject jsonObject = jsonArray.get(0).getAsJsonObject();
             Toast.makeText(context,jsonObject.get("address")+"\n"+jsonObject.get("lat")+"\n"+jsonObject.get("lon"),Toast.LENGTH_LONG).show();
-            System.out.println("Hey : "+jsonObject.get("lat"));
             double latitude = jsonObject.get("lat").getAsDouble();
             double longitude = jsonObject.get("lon").getAsDouble();
             positionOfVehicle = new LatLng(latitude, longitude);
@@ -95,7 +92,6 @@ public class TraceVehicleOnMap extends AppCompatActivity {
 
         ReadyMap(Context context){
             this.context = context;
-//        positionOfVehicle = new LatLng(28.6734467, 77.2878636);
             SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
